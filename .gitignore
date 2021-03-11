@@ -1,0 +1,8 @@
+.bundle
+.idea
+.env
+.byebug_history
+log/
+.idea
+.tool-versions
+.DS_Store
