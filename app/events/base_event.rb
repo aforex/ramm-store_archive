@@ -31,7 +31,7 @@ module Events
       end
 
       @errors = {}
-      trade_errors = Validators::Trade.new.call(**trade).errors.to_h
+      trade_errors = Validators::Trade.new.call(trade).errors.to_h
       @errors[:trade] = trade_errors unless trade_errors.empty?
 
       @errors.empty?
