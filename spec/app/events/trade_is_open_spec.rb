@@ -1,5 +1,5 @@
 describe :trade_is_open do
-  let(:data) { FactoryBot.build(:trade_is_open) }
+  let(:data) { build(:trade_is_open) }
 
   subject { Event.new(data: data, validations: %i[trade]) }
 
