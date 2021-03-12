@@ -1,6 +1,4 @@
-require 'spec_helper'
-
-describe 'event_trade_is_open' do
+describe :trade_is_open do
   let(:params) do
     {
       trade: FactoryBot.build(:trade)

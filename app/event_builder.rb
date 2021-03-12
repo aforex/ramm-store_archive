@@ -37,6 +37,8 @@ class EventBuilder
     investment_withdrawal: ACCOUNT+TRADE,
   }.freeze
 
+  private_constant :ACCOUNT, :TRADE, :WALLET, :VALIDATIONS
+
   def validations
     raise_type_error unless message[:type].start_with?('event_')
 
