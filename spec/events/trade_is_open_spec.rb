@@ -1,13 +1,13 @@
 require 'spec_helper'
 
-describe Events::TradeIsOpen do
+describe 'event_trade_is_open' do
   let(:params) do
     {
       trade: FactoryBot.build(:trade)
     }
   end
 
-  subject { described_class.new(data: params) }
+  subject { Event.new(data: params, validations: %i[trade]) }
 
   it { expect(subject).to be_valid }
 
