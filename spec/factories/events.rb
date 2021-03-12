@@ -23,6 +23,16 @@ FactoryBot.define do
       end
     end
 
+    trait :wallet_payment do
+      type { 'event_wallet_payment' }
+      data do
+        {
+          trade: build(:trade),
+          wallet: build(:wallet)
+        }
+      end
+    end
+
     initialize_with { attributes }
   end
 end
