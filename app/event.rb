@@ -46,19 +46,22 @@ class Event
     end
 
     @errors = {}
-    errors_hash = Validators::Trade.new.call(item).errors.to_h
+    errors_hash = validator_for(name: name).call(item).errors.to_h
     @errors[name] = errors_hash unless errors_hash.empty?
 
     @errors.empty?
   end
 
-  def validator_klass(name:)
-    case name
-    when :account then Validators::Account
-    when :trade then Validators::Trade
-    when :wallet then Validators::Wallet
-    else
-      raise "Unknown item #{name}"
-    end
+  def validator_for(name:)
+    klass =
+      case name
+      when :account then Validators::Account
+      when :trade then Validators::Trade
+      when :wallet then Validators::Wallet
+      else
+        raise "Unknown item #{name}"
+      end
+
+    klass.new
   end
 end
