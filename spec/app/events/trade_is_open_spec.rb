@@ -1,11 +1,13 @@
 describe :trade_is_open do
-  let(:data) { build(:trade_is_open) }
+  let(:message) { build :event, :trade_is_open }
 
-  subject { Event.new(data: data, validations: %i[trade]) }
+  subject { EventBuilder.new(message: message).call }
 
   it { expect(subject).to be_valid }
 
   context 'when invalid params' do
+    let(:message) { build :event, :trade_is_open, data: data }
+
     context 'as empty hash' do
       let(:data) { {} }
       it { expect(subject).not_to be_valid }
