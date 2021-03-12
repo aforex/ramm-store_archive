@@ -14,6 +14,15 @@ FactoryBot.define do
       end
     end
 
+    trait :wallet_is_create do
+      type { 'event_wallet_is_create' }
+      data do
+        {
+          wallet: build(:wallet)
+        }
+      end
+    end
+
     initialize_with { attributes }
   end
 end
