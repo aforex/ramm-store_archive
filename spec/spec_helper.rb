@@ -12,6 +12,7 @@ Dir['./spec/factories/**/*.rb'].sort.each { |file| require file }
 Dir['./spec/shared/**/*.rb'].sort.each { |file| require file }
 
 RSpec.configure do |config|
+  config.include FactoryBot::Syntax::Methods
   config.raise_errors_for_deprecations!
   config.order = :random
 
